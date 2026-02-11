@@ -1,0 +1,273 @@
+{% extends 'content.html.twig' %}
+
+{% block title %}Ressources pédagogiques - dhamien.fr{% endblock %}
+{% block heading %}Ressources pédagogiques{% endblock %}
+
+{% block body %}
+<ul>
+    <li><a href="/media/cours/stage2jours.pdf">Déroulé d'un stage de percussions corporelles et chant rythmique de 2 jours</a></li>
+    <li><a href="/media/cours/jeux.pdf">Jeux rythmico-mélodico-rigolos</a></li>
+</ul>
+
+<section id="videos-percussions-corporelles">
+    <h2>Vidéos percussions corporelles</h2>
+    <p>Attention ! la vidéo est en miroir : ma main gauche visible sur l'écran est en fait ma main droite&hellip;</p>
+    <ol>
+        <li><a href="/media/cours/video/intro.mp4">Introduction</a></li>
+        <li><a href="/media/cours/video/kuku.mp4">Kuku</a></li>
+        <li><a href="/media/cours/video/samba.mp4">Samba</a></li>
+        <li><a href="/media/cours/video/sambamix.mp4">Sambamix</a></li>
+        <li><a href="/media/cours/video/shaker.mp4">Shaker</a></li>
+        <li><a href="/media/cours/video/tambourin.mp4">Tambourine</a></li>
+        <li><a href="/media/cours/video/balladi.mp4">Balladi</a></li>
+        <li><a href="/media/cours/video/nayabingi.mp4">Nayabingi</a></li>
+        <li><a href="/media/cours/video/funk.mp4">Funk</a></li>
+        <li><a href="/media/cours/video/rock.mp4">Rock</a></li>
+        <li><a href="/media/cours/video/hiphop.mp4">Hip hop</a></li>
+        <li><a href="/media/cours/video/hambones.mp4">Hambones</a></li>
+        <li><a href="/media/cours/video/baiao.mp4">Baiao</a></li>
+        <li><a href="/media/cours/video/papita.mp4">Papita</a></li>
+        <li><a href="/media/cours/video/continuum.mp4">Continuum ternaire</a></li>
+        <li><a href="/media/cours/video/kalakaloukala.mp4">Kalakaloukala</a></li>
+        <li><a href="/media/cours/video/claveafro.mp4">Claveafro</a></li>
+        <li><a href="/media/cours/video/percu.mp4">Petit mix vosgien</a></li>
+    </ol>
+</section>
+
+<section id="snap">
+    <h2>SNAP !</h2>
+    <p>Snap, percussions corporelles.</p>
+    <div class="responsive-iframe">
+        <iframe src="https://www.youtube.com/embed/Jio_7wvqXfU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="SNAP - percussions corporelles"></iframe>
+    </div>
+    <ul>
+        <li><a href="https://www.youtube.com/watch?v=wCJCoGl4IGM">Tutoriel snap 1</a></li>
+        <li><a href="https://www.youtube.com/watch?v=SMQkL5lHrtQ">Tutoriel snap 2</a></li>
+        <li><a href="https://www.youtube.com/shorts/BO2JvrKlTfE">Tutoriel snap 3</a></li>
+        <li><a href="https://www.youtube.com/watch?v=a_8NTtPOj58">Tutoriel snap 4</a></li>
+        <li><a href="/media/cours/partitions_snap.pdf">Partitions en PDF</a></li>
+    </ul>
+</section>
+
+<section id="clap">
+    <h2>CLAP !</h2>
+    <p>Clap, percussions corporelles.</p>
+    <div class="responsive-iframe">
+        <iframe src="https://www.youtube.com/embed/w78tZ0GxLdo?start=125" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="CLAP - percussions corporelles"></iframe>
+    </div>
+    <ul>
+        <li><a href="/media/cours/clap.pdf">Télécharger les partitions</a></li>
+    </ul>
+</section>
+
+<section id="gaia">
+    <h2>GAIA (Boomwhackers &amp; percussions corporelles)</h2>
+    <ul>
+        <li><a href="https://www.inecc-lorraine.com/fr/kit-a-chanter/gaia_-b.html">Gaïa - terres nomades - INECC Mission Voix Lorraine</a></li>
+    </ul>
+</section>
+
+<section id="nomade">
+    <h2>NOMADE</h2>
+    <p><a href="https://www.inecc-lorraine.com/fr/kit-a-chanter/nomade_-b.html">INECC Mission Voix Lorraine - Nomade</a></p>
+</section>
+
+<section id="beatbox">
+    <h2>Beatbox</h2>
+    <div class="looper-controls">
+        <h5>Beatbox Looper</h5>
+        <div class="text-center" style="margin-bottom: 12px;">
+            <button onclick="play()" class="btn-play">PLAY</button>
+            <button onclick="stop()" class="btn-stop">STOP</button>
+        </div>
+        <div class="text-center" style="margin-bottom: 8px;">
+            <span>Mélodie : </span>
+            <span class="radio-group">
+                <input type="radio" id="melodieon" name="melodie" onclick="muteMelodie(false)">
+                <label for="melodieon">ON</label>
+                <input type="radio" id="melodieoff" name="melodie" onclick="muteMelodie(true)" checked>
+                <label for="melodieoff">OFF</label>
+            </span>
+        </div>
+        <div class="text-center">
+            <span>Rythme : </span>
+            <span class="radio-group">
+                <input type="radio" id="clave" name="rythme" onclick="toggleClave()">
+                <label for="clave">CLAVE</label>
+                <input type="radio" id="hiphop" name="rythme" onclick="toggleHiphop()">
+                <label for="hiphop">HIPHOP</label>
+                <input type="radio" id="rock" name="rythme" onclick="toggleRock()">
+                <label for="rock">ROCK</label>
+                <input type="radio" id="off" name="rythme" onclick="toggleOff()" checked>
+                <label for="off">OFF</label>
+            </span>
+        </div>
+    </div>
+    <ul>
+        <li><a href="/media/cours/beatbox_groove_variations.pdf">Grooves et variations</a></li>
+        <li><a href="/media/cours/beatbox_legende.pdf">Légende</a></li>
+    </ul>
+</section>
+
+<section id="konnakol">
+    <h2>Konnakol</h2>
+    <ul>
+        <li><a href="/media/cours/courskonnakol1.pdf">Cours konnakol 1</a></li>
+        <li><a href="/media/cours/video/1_takadimi_3_vitesses.webm">Takadimi à 3 vitesses</a></li>
+        <li><a href="/media/cours/video/2a_canon_takadimi.webm">Canon takadimi</a></li>
+        <li><a href="/media/cours/video/2b_takadimi_déplacement_accent.webm">Takadimi avec déplacement d'accent</a></li>
+        <li><a href="/media/cours/video/3_exercice_debit.webm">Exercice de débit</a></li>
+        <li><a href="/media/cours/video/4_exercice_debit_bis_takadimi.webm">Exercice de débit, bis</a></li>
+        <li><a href="/media/cours/video/5_exercice_manjunath.webm">Exercice de Manjunath</a></li>
+        <li><a href="/media/cours/video/6_ganapaya.webm">Ganapaya</a></li>
+        <li>Tha Dhi Thom Nam : <a href="/media/cours/taditomnam.pdf">partition</a>, <a href="/media/cours/thadhithomnam.mp3">audio</a></li>
+        <li>Suite Konnakol : <a href="/media/cours/suite_konnakol.pdf">partition</a>, <a href="/media/cours/suite_konnakol.mp3">audio</a></li>
+    </ul>
+</section>
+
+<section id="akoutoumbele">
+    <h2>Akoutoumbélé (percussions corporelles)</h2>
+    <audio controls preload="none">
+        <source src="/media/cours/akoutoumbele.mp3" type="audio/mpeg">
+    </audio>
+    <p><a href="/media/cours/akoutoumbele.pdf">Transcription et paroles</a></p>
+</section>
+
+<section id="koudou-kan-galou">
+    <h2>Koudou Kan Galou (percussions corporelles)</h2>
+    <audio controls preload="none">
+        <source src="/media/cours/koudou_kan_galou.mp3" type="audio/mpeg">
+    </audio>
+    <p><a href="/media/cours/koudou_kan_galou.pdf">Transcription et paroles</a></p>
+</section>
+
+<section id="cours-binaires-ternaires">
+    <h2>Cours binaires &amp; ternaires</h2>
+    <ul>
+        <li><a href="/media/cours/cours_binaire.pdf">Télécharger les cours binaires</a></li>
+        <li><a href="/media/cours/cours_ternaire.pdf">Télécharger les cours ternaires</a></li>
+    </ul>
+
+    <p>Découpage rythmique :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/decoupagerythmique.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Tresillo :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/tresillo.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Cascara :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/cascara.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Cinquillo :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/cinquillo.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Claves brésiliennes :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/clavesbresil.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>3 pour 2 :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/3pour2.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Claves ternaires :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/clavesternaire.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Mazurka créole :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/mazurkacreole.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Ig bombili nembosso (Anita et Marie Daulnes) :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/ig_bombili_nembosso.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Simba simba papa lucia :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/simba_papa.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Question / réponse batucada :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/qr_batucada.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>Yéta :</p>
+    <audio controls preload="none">
+        <source src="/media/cours/mp3/yeta.mp3" type="audio/mpeg">
+    </audio>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://unpkg.com/tone"></script>
+    <script>
+        const melodie = new Tone.Player('/media/looper/dhamien_bb_melodie.mp3').toDestination();
+        melodie.loop = true;
+        melodie.mute = true;
+        const clave_s = new Tone.Player('/media/looper/dhamien_bb_clave.mp3').toDestination();
+        clave_s.loop = true;
+        clave_s.mute = true;
+        const hiphop_s = new Tone.Player('/media/looper/dhamien_bb_hiphop.mp3').toDestination();
+        hiphop_s.loop = true;
+        hiphop_s.mute = true;
+        const rock_s = new Tone.Player('/media/looper/dhamien_bb_rock.mp3').toDestination();
+        rock_s.loop = true;
+        rock_s.mute = true;
+
+        function play() {
+            Tone.start();
+            melodie.start();
+            clave_s.start();
+            hiphop_s.start();
+            rock_s.start();
+        }
+
+        function stop() {
+            melodie.stop();
+            clave_s.stop();
+            hiphop_s.stop();
+            rock_s.stop();
+        }
+
+        function muteMelodie(mute) {
+            melodie.mute = mute;
+        }
+
+        function toggleClave() {
+            clave_s.mute = false;
+            hiphop_s.mute = true;
+            rock_s.mute = true;
+        }
+
+        function toggleHiphop() {
+            hiphop_s.mute = false;
+            rock_s.mute = true;
+            clave_s.mute = true;
+        }
+
+        function toggleRock() {
+            rock_s.mute = false;
+            clave_s.mute = true;
+            hiphop_s.mute = true;
+        }
+
+        function toggleOff() {
+            rock_s.mute = true;
+            clave_s.mute = true;
+            hiphop_s.mute = true;
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,72 @@
+body {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+.page-header {
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #f0f0f0;
+}
+
+a {
+    color: #e6a756;
+}
+a:hover {
+    color: #f0c987;
+}
+
+.navbar-brand {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+}
+
+.content-section img.float-end {
+    max-width: 320px;
+    border-radius: 0.5rem;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    transition: transform 0.2s ease;
+}
+.photo-gallery img:hover {
+    transform: scale(1.03);
+}
+
+.card-home {
+    background-color: #16213e;
+    border: 1px solid #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-home:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.2);
+}
+.card-home .card-title {
+    color: #e6a756;
+}
+
+.looper-controls .btn {
+    min-width: 80px;
+}
+
+.ratio iframe {
+    border: 0;
+}
+
+audio {
+    width: 100%;
+    max-width: 500px;
+}
+
+footer a {
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}

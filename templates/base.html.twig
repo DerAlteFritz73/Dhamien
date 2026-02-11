@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Dhamien Schmutz - Percussionniste, musicien, pédagogue">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}dhamien.fr{% endblock %}</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/carousel.css" rel="stylesheet">
+    <script src="/js/carousel.js"></script>
+    <script src="/js/responsive-imagemap.js"></script>
+    <script src="/js/center-accordion.js"></script>
+    {% block stylesheets %}{% endblock %}
+    {% block head %}{% endblock %}
+  </head>
+  <body class="relative">
+    {# Determine current section from URL #}
+    {% set section = app.request.pathInfo|split('/')[1]|default('') %}
+
+    {# Mobile navigation #}
+    <nav class="mobile-nav">
+      <button class="mobile-nav-toggle" onclick="document.querySelector('.mobile-nav-menu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="mobile-nav-menu">
+        <a href="{{ path('app_home') }}">Accueil</a>
+        <a href="{{ path('page_musique') }}">Musique</a>
+        <a href="{{ path('page_spectacles') }}">Spectacles</a>
+        <a href="{{ path('page_biographie') }}">Biographie</a>
+        <a href="{{ path('page_stage') }}">Stages</a>
+        <a href="{{ path('page_prive') }}">Ressources</a>
+        <a href="{{ path('page_voyages_photos') }}">Photos de voyage</a>
+        <a href="{{ path('page_contact') }}">Contact</a>
+        <a href="{{ path('page_presentation') }}">Présentation</a>
+        <a href="{{ path('page_infos_photos') }}">Photos</a>
+        <a href="{{ path('page_presse') }}">Presse</a>
+        <a href="{{ path('page_liens') }}">Liens</a>
+        <a href="{{ path('page_merci') }}">Merci</a>
+        <a href="{{ path('page_agenda') }}">Agenda</a>
+      </div>
+    </nav>
+
+    <div class="mx-auto" style="max-width: 1600px; width: 100%; padding: 0 20px;">
+      <div class="flex flex-col items-center justify-center min-h-screen">
+        <section id="accueil">
+          <a href="{{ path('app_home') }}">
+            <img class="max-w-full" src="/media/img/accueil.jpg" alt="accueil">
+          </a>
+        </section>
+        <section id="musique">
+          {% if section == 'musique' %}
+          <a href="{{ path('app_home') }}">
+            <img class="max-w-full" src="/media/img/musique.jpg" alt="musique">
+          </a>
+          <div class="submenu-wrapper">
+            <img class="max-w-full" src="/media/img/menu_musique.jpg" usemap="#musiqueMap" alt="musique-menu">
+            <map name="musiqueMap">
+              <area shape="poly" coords="10,144,47,178,189,37,170,23,120,71,102,57,10,143" href="{{ path('page_musique') }}">
+              <area shape="poly" coords="424,156,445,175,508,109,491,95,423,156" href="{{ path('page_spectacles') }}">
+            </map>
+          </div>
+          {% else %}
+          <a href="{{ path('section_musique') }}">
+            <img class="max-w-full" src="/media/img/musique.jpg" alt="musique">
+          </a>
+          {% endif %}
+        </section>
+        <section id="cours">
+          {% if section == 'cours' %}
+          <a href="{{ path('app_home') }}">
+            <img class="max-w-full" src="/media/img/cours.jpg" alt="cours">
+          </a>
+          <div class="submenu-wrapper">
+            <img class="max-w-full" src="/media/img/menu_cours.jpg" usemap="#coursMap" alt="cours-menu">
+            <map name="coursMap">
+              <area shape="poly" coords="22,153,121,52,151,76,49,176,21,152" href="{{ path('page_biographie') }}">
+              <area shape="poly" coords="249,145,355,43,376,56,426,7,447,25,285,182,248,144" href="{{ path('page_stage') }}">
+              <area shape="poly" coords="422,152,533,40,557,74,449,178,422,152" href="{{ path('page_prive') }}">
+            </map>
+          </div>
+          {% else %}
+          <a href="{{ path('section_cours') }}">
+            <img class="max-w-full" src="/media/img/cours.jpg" alt="cours">
+          </a>
+          {% endif %}
+        </section>
+        <section id="voyages">
+          {% if section == 'voyages' %}
+          <a href="{{ path('app_home') }}">
+            <img class="max-w-full" src="/media/img/voyages.jpg" alt="voyages">
+          </a>
+          <div class="submenu-wrapper">
+            <img class="max-w-full" src="/media/img/menu_voyages.jpg" alt="voyages-menu" usemap="#voyagesMap">
+            <map name="voyagesMap">
+              <area shape="poly" coords="173,151,233,95,257,119,203,174,172,150" href="{{ path('page_voyages_photos') }}">
+              <area shape="poly" coords="504,155,554,104,585,134,536,184,505,155" href="{{ path('page_voyages_blog') }}">
+            </map>
+          </div>
+          {% else %}
+          <a href="{{ path('section_voyages') }}">
+            <img class="max-w-full" src="/media/img/voyages.jpg" alt="voyages">
+          </a>
+          {% endif %}
+        </section>
+        <section id="infos">
+          {% if section == 'infos' %}
+          <a href="{{ path('app_home') }}">
+            <img class="max-w-full" src="/media/img/infos.jpg" alt="infos">
+          </a>
+          <div class="submenu-wrapper">
+            <img class="max-w-full" src="/media/img/menu_infos.jpg" alt="infos" usemap="#infosMap">
+            <map name="infosMap">
+              <area shape="poly" coords="21,149,103,65,129,88,44,175,21,149" href="{{ path('page_contact') }}">
+              <area shape="poly" coords="86,149,175,59,191,74,248,20,271,42,127,186,87,148" href="{{ path('page_presentation') }}">
+              <area shape="poly" coords="337,151,417,78,444,102,369,181,337,151" href="{{ path('page_infos_photos') }}">
+              <area shape="poly" coords="422,153,501,78,526,102,447,175,420,152" href="{{ path('page_presse') }}">
+            </map>
+          </div>
+          {% else %}
+          <a href="{{ path('section_infos') }}">
+            <img class="max-w-full" src="/media/img/infos.jpg" alt="infos">
+          </a>
+          {% endif %}
+        </section>
+        <section id="liens">
+          {% if section == 'liens' %}
+          <a href="{{ path('app_home') }}">
+            <img class="max-w-full" src="/media/img/liens.jpg" alt="liens">
+          </a>
+          <div class="submenu-wrapper">
+            <img class="max-w-full" src="/media/img/menu_liens.jpg" usemap="#liensMap" alt="liens">
+            <map name="liensMap">
+              <area shape="poly" coords="15,152,77,97,100,116,39,175,14,152" href="{{ path('page_liens') }}">
+              <area shape="poly" coords="483,89,423,150,449,177,511,114,484,88" href="{{ path('page_merci') }}">
+            </map>
+          </div>
+          {% else %}
+          <a href="{{ path('section_liens') }}">
+            <img class="max-w-full" src="/media/img/liens.jpg" alt="liens">
+          </a>
+          {% endif %}
+        </section>
+        <section id="agenda">
+          <a href="{{ path('page_agenda') }}">
+            <img class="max-w-full" src="/media/img/agenda.jpg" alt="agenda">
+          </a>
+        </section>
+        {% block main %}{% endblock %}
+      </div>
+    </div>
+    {% block javascripts %}{% endblock %}
+  </body>
+</html>

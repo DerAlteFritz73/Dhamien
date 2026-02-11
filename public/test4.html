@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Test 4 - Content page simulation</title>
+    <link href="/css/styles.css" rel="stylesheet">
+  </head>
+  <body class="relative">
+    <div class="container mx-auto" style="min-width: 650px">
+      <div class="flex flex-col items-center justify-center min-h-screen my-4">
+        <section id="accueil">
+          <a href="/"><img class="max-w-full" src="/media/img/accueil.jpg" alt="accueil"></a>
+        </section>
+        <section id="musique">
+          <a href="/"><img class="max-w-full" src="/media/img/musique.jpg" alt="musique"></a>
+          <img class="max-w-full" src="/media/img/menu_musique.jpg" alt="musique-menu">
+        </section>
+        <section id="cours">
+          <a href="#"><img class="max-w-full" src="/media/img/cours.jpg" alt="cours"></a>
+        </section>
+        <section id="voyages">
+          <a href="#"><img class="max-w-full" src="/media/img/voyages.jpg" alt="voyages"></a>
+        </section>
+        <section id="infos">
+          <a href="#"><img class="max-w-full" src="/media/img/infos.jpg" alt="infos"></a>
+        </section>
+        <section id="liens">
+          <a href="#"><img class="max-w-full" src="/media/img/liens.jpg" alt="liens"></a>
+        </section>
+        <section id="agenda">
+          <a href="#"><img class="max-w-full" src="/media/img/agenda.jpg" alt="agenda"></a>
+        </section>
+
+        <!-- Content overlay (same as content.html.twig) -->
+        <div class="fixed top-0 left-0 w-screen h-screen bg-black opacity-80"> </div>
+        <div class="absolute top-0 left-0 w-screen">
+          <div class="relative container mx-auto flex flex-col items-center my-2">
+            <div class="rounded overflow-hidden drop-shadow-md" style="background-image: url('/media/img/body.jpg')">
+              <div class="float-right text-lg text-white p-2">
+                <a href="/">✕</a>
+              </div>
+              <div class="rounded-t text-white p-2" style="background-image: url('/media/img/barre.jpg')">
+                <h1 class="text-lg font-bold">Test Content Page</h1>
+              </div>
+              <div class="prose lg:prose-xl p-2 lg:p-4">
+                <p>This is a test content page. The accordion should be dimly visible behind this overlay.</p>
+                <p>If you can see the section images (accueil, musique, etc.) faintly behind the dark overlay, it's working correctly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
