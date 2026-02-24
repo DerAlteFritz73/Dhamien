@@ -28,6 +28,13 @@ a:hover {
     border-radius: 0.5rem;
 }
 
+.section-img {
+    float: right;
+    width: 20vw;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
 .photo-gallery img {
     width: 100%;
     height: auto;

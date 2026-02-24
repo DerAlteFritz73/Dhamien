@@ -6,7 +6,7 @@
 {% block body %}
 <section id="angatchalo">
     <h2>Angatchalo</h2>
-    <img src="/media/musique/angatchalo.jpg" class="float-right ml-3 mb-3 w-64 lg:w-80" alt="Angatchalo">
+    <img src="/media/musique/angatchalo.jpg" class="section-img" alt="Angatchalo">
     <p>En concert, Angatchalo vous propose une croisière musicale sur les eaux mélangées du Gange et du Niger.</p>
     <p>Face à l'étonnant mariage de cordes du kamalé n'goni d'Afrique de l'Ouest et du sitar indien, La flûte traversière offre un trait d'union&hellip; qui nous permet de vous conter, en musique, la possibilité d'un autre monde de rencontres et d'harmonie.</p>
     <ul>
@@ -26,7 +26,7 @@
 
 <section id="didji-schmoutzi">
     <h2>Didji Schmoutzi</h2>
-    <img src="/media/musique/dj_schmutzy.jpg" class="float-right ml-3 mb-3 w-64" alt="Didji Schmoutzi">
+    <img src="/media/musique/dj_schmutzy.jpg" class="section-img" alt="Didji Schmoutzi">
     <p>Funk, soul, world music&hellip; laissez vous tenter par une sélection nourrie de nombreuses heures de recherches dans les bacs de mes disquaires préférés. Il y a de bonnes chances que vous connaissiez les artistes mais peut être pas certains des titres moins connus que je vous propose de découvrir. Let's dance !</p>
     <ul>
         <li>Télécharger <a href="/media/musique/didji_schmoutzi_plaquette.pdf">la plaquette</a></li>
@@ -43,7 +43,7 @@
 
 <section id="batucada">
     <h2>Batucada &laquo;&nbsp;Be a Peace Maker&nbsp;&raquo;</h2>
-    <img src="/media/musique/bpm_baguettes.jpg" class="float-right ml-3 mb-3 w-64" alt="Batucada BPM">
+    <img src="/media/musique/bpm_baguettes.jpg" class="section-img" alt="Batucada BPM">
     <p>Fanfare de percussions brésiliennes née au conservatoire de Maizières les Metz. Le répertoire est composé de rythmes et chants traditionnels brésiliens mais s'inspire également des musiques d'autres pays et continents (Inde, Afrique&hellip;) ainsi que des musiques actuelles (funk, rock&hellip;)</p>
     <ul>
         <li>Voir <a href="http://82.64.147.29">le site internet</a></li>
@@ -53,7 +53,7 @@
 
 <section id="balade-musicale">
     <h2>Balade musicale</h2>
-    <img src="/media/musique/balade_musicale.jpg" class="float-right ml-3 mb-3 w-64" alt="Balade musicale">
+    <img src="/media/musique/balade_musicale.jpg" class="section-img" alt="Balade musicale">
     <p>Accompagné d'un kamalé n'goni (harpe, Afrique de l'ouest), de kalimbas (lamellophone, Zimbawé), d'un berimbau (arc musical brésilien) &hellip; et de mes humbles* cordes vocales, je vous ferai voyager low cost dans votre campagne. Itinéraire et nombres de pauses musicales à établir avec les organisateurs.</p>
     <p>N.B. J'assume pleinement la responsabilité météorologique d'éventuelles fausses notes.</p>
     <ul>
@@ -64,7 +64,7 @@
 
 <section id="moods">
     <h2>Moods, déclinaisons indiennes. Musique du monde.</h2>
-    <img src="/media/musique/moods.jpg" class="float-right ml-3 mb-3 w-64 lg:w-80" alt="Moods">
+    <img src="/media/musique/moods.jpg" class="section-img" alt="Moods">
     <p>Croisée des chemins de plusieurs univers autour du chaturangui de Reno Daniaud.</p>
     <p>Accompagné aux percussions par Dhamien Schmutz.</p>
     <p>Grâce à leur parcours respectif, Reno et Dhamien ont choisi d'incorporer d'autres influences musicales dans le répertoire de Moods &hellip; Les tablas s'entourent de calebasses, senza, udu, guimbardes &hellip; alors que le chaturangui flirte avec des couleurs créoles, donne à cette pentatonique un parfum de blues &hellip;</p>
@@ -89,4 +89,32 @@
         <li><a href="https://www.youtube.com/watch?v=53YYTHcFJJQ">Tablas duet</a></li>
     </ul>
 </section>
+
+<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; cursor:pointer; align-items:center; justify-content:center;">
+    <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; object-fit:contain; border-radius:4px;">
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.body.appendChild(lightbox);
+
+    document.querySelectorAll('.section-img').forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+    });
+</script>
 {% endblock %}

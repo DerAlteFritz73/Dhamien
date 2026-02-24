@@ -6,7 +6,7 @@
 {% block body %}
 <section id="les-mains-qui-causent">
     <h2>Les Mains qui Causent</h2>
-    <img src="/media/spectacles/mains.jpg" class="float-right ml-3 mb-3 w-64 lg:w-80" alt="Les Mains qui Causent">
+    <img src="/media/spectacles/mains.jpg" class="section-img" alt="Les Mains qui Causent">
     <p>Une épopée musicale du bouts des doigts de et par Dhamien Schmutz.</p>
     <p><em>Je vais vous raconter comment mes mains sont devenues musiciennes &hellip;</em></p>
     <p><em>Mes mains à moi, ne s'entendaient pas! Il a fallu les séparer pour qu'elles puissent mieux se retrouver. Après un long voyage, Mano et Mana sont revenues chacune avec une histoire à raconter et de la musique à partager.</em></p>
@@ -22,7 +22,7 @@
 
 <section id="terres-nomades">
     <h2>Terres nomades</h2>
-    <img src="/media/spectacles/terre_nomade.jpg" class="float-right ml-3 mb-3 w-64 lg:w-80" alt="Terres nomades">
+    <img src="/media/spectacles/terre_nomade.jpg" class="section-img" alt="Terres nomades">
     <p>Gaia&hellip; la première petite fille de l'humanité n'a pas envie de faire ce que ses parents lui demandent. Pourtant ils lui confient une mission de la plus haute importance : surveiller le feu de l'humanité et touiller la soupe céleste&hellip;</p>
     <p>Embarquez pour un voyage musical autour du monde, accompagnés d'instruments plus étonnants les uns que les autres.</p>
     <p>Formule à géométrie variable (solo, duo, trio&hellip;), à la croisée de plusieurs chemins artistiques et horizons musicaux, entre l'Inde, l'Afrique et l'Amérique du sud.</p>
@@ -37,7 +37,7 @@
 
 <section id="la-reunion-des-tam-tams">
     <h2>La réunion des Tam-tams</h2>
-    <img src="/media/spectacles/tamtam.jpg" class="float-right ml-3 mb-3 w-64 lg:w-80" alt="La réunion des Tam-tams">
+    <img src="/media/spectacles/tamtam.jpg" class="section-img" alt="La réunion des Tam-tams">
     <p>Spectacle musical de et avec Schmutz Dhamien, à partir de 6 ans.</p>
     <p><em>Un voyageur est parti à la rencontre des tambours. Il en revient chargé d'instruments qu'il souhaite vous présenter&hellip; Chacun d'entre eux a sa petite histoire à raconter</em></p>
     <p>Ce spectacle est né d'une envie : vous faire partager mon expérience de l'apprentissage des percussions. Mes pieds m'ont guidé en Inde, en Afrique et à Cuba. Mes mains y ont rencontré différents tambours, qui se sont finalement retrouvés sur la même scène. On y découvre les onomatopées des tablas indiens, le caractère lunatique de tadigenatom la calebasse africaine ou encore le tambourin brésilien, petit mais loin d'être le dernier à se faire entendre. Différents instruments, différentes techniques de jeu, des couleurs du monde qui se marient au grès d'une histoire rafraîchissante.</p>
@@ -52,7 +52,7 @@
 
 <section id="larbre-de-neem">
     <h2>L'arbre de Neem</h2>
-    <img src="/media/spectacles/neem.jpg" class="float-right ml-3 mb-3 w-64 lg:w-80" alt="L'arbre de Neem">
+    <img src="/media/spectacles/neem.jpg" class="section-img" alt="L'arbre de Neem">
     <p><em>Quand on l'a trouvée, elle était blottie dans les racines d'un grand arbre Neem. On l'a nommée Neembati Swastyamdadati, mais, pour faire plus court, dans notre histoire, nous l'appellerons Neem. Elle a grandi entourée d'une sœur et d'une mère. Et un beau jour, elle a fleuri. Neem est devenue un bel arbre aux fleurs parfumées. Mi femme, mi arbre, elle a tendu ses branches pour enlacer le ciel. Un prince a caressé son écorce, et l'Amour a servi de terreau.</em></p>
     <p><em>Mais même le plus bel arbre n'est pas à l'abri de la maladie humaine : la jalousie.</em></p>
     <p>Voyage initiatique dans une autre Inde, carrefour entre modernité et tradition. Conte indien collecté par AK Ramajunan et réadapté, pour tout public à partir de 7 ans&hellip; Avec <a href="https://www.couseusedhistoires.fr">Léa Pellarin</a> (conte, chant et gestes dansés) et Dhamien Schmutz (musique et chant).</p>
@@ -60,4 +60,32 @@
     <p><a href="https://larbredeneem.bandcamp.com/track/larbre-de-neem">Ecouter le conte l'arbre de Neem</a></p>
     <div class="clear-both"></div>
 </section>
+
+<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; cursor:pointer; align-items:center; justify-content:center;">
+    <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; object-fit:contain; border-radius:4px;">
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.body.appendChild(lightbox);
+
+    document.querySelectorAll('.section-img').forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+    });
+</script>
 {% endblock %}

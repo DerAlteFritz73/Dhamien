@@ -3,7 +3,7 @@
 
 {% block main %}
 <div class="fixed top-0 left-0 w-screen h-screen bg-black opacity-80"> </div>
-<div class="fixed top-0 left-0 w-screen h-screen flex justify-center" style="padding: 20px;">
+<div class="fixed top-0 left-0 w-screen h-screen flex justify-center content-overlay" style="padding: 20px;">
   <div class="content-panel rounded drop-shadow-md my-2" style="background-image: url('/media/img/body.jpg'); max-height: calc(100vh - 40px); overflow-y: auto; overflow-x: hidden;">
       <div class="float-right text-lg text-white p-2">
         <a onclick="history.back(); return false;" href="{{ path('app_home') }}">
@@ -17,7 +17,7 @@
       <div class="rounded-t text-white p-2" style="background-image: url('/media/img/barre.jpg')">
         <h1 class="text-lg font-bold">{% block heading %}{% endblock %}</h1>
       </div>
-      <div class="prose lg:prose-xl p-2 lg:p-4">
+      <div class="prose lg:prose-xl p-2 lg:p-4 content-prose">
         {% block body %}{% endblock %}
       </div>
     </div>
