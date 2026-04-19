@@ -1631,6 +1631,10 @@ h1, h2, h3 {
   margin-bottom: 1rem;
 }
 
+.clear-both {
+  clear: both;
+}
+
 @media (max-width: 1023px) {
   .section-img {
     width: 35vw;

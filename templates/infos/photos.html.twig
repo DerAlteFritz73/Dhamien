@@ -7,53 +7,26 @@
 <p>Quelques images &hellip;</p>
 
 <div class="photo-gallery">
-    <img src="/media/infos/photos/arnaud_eurin.jpg" alt="Arnaud Eurin">
-    <img src="/media/infos/photos/at_home.jpg" alt="At home">
-    <img src="/media/infos/photos/chet_nuneta.jpg" alt="Avec Chet Nuneta">
-    <img src="/media/infos/photos/gurudji.jpg" alt="Avec Gurudji Pandit Shankar Ghosh">
-    <img src="/media/infos/photos/break_nuneta.jpg" alt="Break nuneta">
-    <img src="/media/infos/photos/caravana_sun.jpg" alt="Caravana sun">
-    <img src="/media/infos/photos/duo_hindustani.jpg" alt="Duo Hindustani">
-    <img src="/media/infos/photos/eko_batucada.jpg" alt="EKO Batucada">
-    <img src="/media/infos/photos/emmanuel_et_gopal.jpg" alt="Emmanuel Simon et Gopal Das">
-    <img src="/media/infos/photos/manutention.jpg" alt="La manutention">
-    <img src="/media/infos/photos/tamtams.jpg" alt="La réunion des tamtams">
-    <img src="/media/infos/photos/tamtams2.jpg" alt="La réunion des tamtams encore">
-    <img src="/media/infos/photos/bouldegom.jpg" alt="Mister Bouldegom Adagio">
-    <img src="/media/infos/photos/moods.jpg" alt="Moods">
-    <img src="/media/infos/photos/moods2.jpg" alt="Moods encore">
-    <img src="/media/infos/photos/planet_drum.jpg" alt="Planet Drum">
-    <img src="/media/infos/photos/takite.jpg" alt="TakitéTakitéTakité">
-    <img src="/media/infos/photos/tamtams_paradise.jpg" alt="Tamtams paradise">
-    <img src="/media/infos/photos/mains_qui_causent.jpg" alt="Les mains qui causent">
-    <img src="/media/infos/photos/reunion_tamtams.jpg" alt="La réunion des tamtams">
+    <img class="lightbox-img" src="/media/infos/photos/arnaud_eurin.jpg" alt="Arnaud Eurin">
+    <img class="lightbox-img" src="/media/infos/photos/at_home.jpg" alt="At home">
+    <img class="lightbox-img" src="/media/infos/photos/chet_nuneta.jpg" alt="Avec Chet Nuneta">
+    <img class="lightbox-img" src="/media/infos/photos/gurudji.jpg" alt="Avec Gurudji Pandit Shankar Ghosh">
+    <img class="lightbox-img" src="/media/infos/photos/break_nuneta.jpg" alt="Break nuneta">
+    <img class="lightbox-img" src="/media/infos/photos/caravana_sun.jpg" alt="Caravana sun">
+    <img class="lightbox-img" src="/media/infos/photos/duo_hindustani.jpg" alt="Duo Hindustani">
+    <img class="lightbox-img" src="/media/infos/photos/eko_batucada.jpg" alt="EKO Batucada">
+    <img class="lightbox-img" src="/media/infos/photos/emmanuel_et_gopal.jpg" alt="Emmanuel Simon et Gopal Das">
+    <img class="lightbox-img" src="/media/infos/photos/manutention.jpg" alt="La manutention">
+    <img class="lightbox-img" src="/media/infos/photos/tamtams.jpg" alt="La réunion des tamtams">
+    <img class="lightbox-img" src="/media/infos/photos/tamtams2.jpg" alt="La réunion des tamtams encore">
+    <img class="lightbox-img" src="/media/infos/photos/bouldegom.jpg" alt="Mister Bouldegom Adagio">
+    <img class="lightbox-img" src="/media/infos/photos/moods.jpg" alt="Moods">
+    <img class="lightbox-img" src="/media/infos/photos/moods2.jpg" alt="Moods encore">
+    <img class="lightbox-img" src="/media/infos/photos/planet_drum.jpg" alt="Planet Drum">
+    <img class="lightbox-img" src="/media/infos/photos/takite.jpg" alt="TakitéTakitéTakité">
+    <img class="lightbox-img" src="/media/infos/photos/tamtams_paradise.jpg" alt="Tamtams paradise">
+    <img class="lightbox-img" src="/media/infos/photos/mains_qui_causent.jpg" alt="Les mains qui causent">
+    <img class="lightbox-img" src="/media/infos/photos/reunion_tamtams.jpg" alt="La réunion des tamtams">
 </div>
 
-<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; cursor:pointer; align-items:center; justify-content:center;">
-    <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; object-fit:contain; border-radius:4px;">
-</div>
-{% endblock %}
-
-{% block javascripts %}
-{{ parent() }}
-<script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    document.body.appendChild(lightbox);
-
-    document.querySelectorAll('.photo-gallery img').forEach(img => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', () => {
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightbox.style.display = 'flex';
-        });
-    });
-
-    lightbox.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-        lightboxImg.src = '';
-    });
-</script>
 {% endblock %}

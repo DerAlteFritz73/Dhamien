@@ -5,52 +5,24 @@
 
 {% block body %}
 <div class="photo-gallery">
-    <img src="/media/voyages/nz.jpg" alt="100% pure NZ">
-    <img src="/media/voyages/adoption.jpg" alt="Adoption">
-    <img src="/media/voyages/avendre.jpg" alt="A vendre">
-    <img src="/media/voyages/comment.jpg" alt="Comment ?">
-    <img src="/media/voyages/constantinople.jpg" alt="Constantinople">
-    <img src="/media/voyages/dakar.jpg" alt="Dakar">
-    <img src="/media/voyages/singes.jpg" alt="Entre singes ...">
-    <img src="/media/voyages/hampi.jpg" alt="Hampi">
-    <img src="/media/voyages/rickshaw.jpg" alt="Les rickshaw de Behala">
-    <img src="/media/voyages/piquenique.jpg" alt="Invité de pique-nique">
-    <img src="/media/voyages/kangourou.jpg" alt="Kangourou">
-    <img src="/media/voyages/lion.jpg" alt="Le lion des mers">
-    <img src="/media/voyages/millilan.jpg" alt="Millilan Gali Riveri">
-    <img src="/media/voyages/sommet.jpg" alt="Un sommet annapurnien">
-    <img src="/media/voyages/virage.jpg" alt="Un virage himalayen">
-    <img src="/media/voyages/volcan.jpg" alt="Volcan ?">
-    <img src="/media/voyages/cockatoo.jpg" alt="White cockatoo">
-    <img src="/media/voyages/wiliapa.jpg" alt="Wiliapa">
+    <img class="lightbox-img" src="/media/voyages/nz.jpg" alt="100% pure NZ">
+    <img class="lightbox-img" src="/media/voyages/adoption.jpg" alt="Adoption">
+    <img class="lightbox-img" src="/media/voyages/avendre.jpg" alt="A vendre">
+    <img class="lightbox-img" src="/media/voyages/comment.jpg" alt="Comment ?">
+    <img class="lightbox-img" src="/media/voyages/constantinople.jpg" alt="Constantinople">
+    <img class="lightbox-img" src="/media/voyages/dakar.jpg" alt="Dakar">
+    <img class="lightbox-img" src="/media/voyages/singes.jpg" alt="Entre singes ...">
+    <img class="lightbox-img" src="/media/voyages/hampi.jpg" alt="Hampi">
+    <img class="lightbox-img" src="/media/voyages/rickshaw.jpg" alt="Les rickshaw de Behala">
+    <img class="lightbox-img" src="/media/voyages/piquenique.jpg" alt="Invité de pique-nique">
+    <img class="lightbox-img" src="/media/voyages/kangourou.jpg" alt="Kangourou">
+    <img class="lightbox-img" src="/media/voyages/lion.jpg" alt="Le lion des mers">
+    <img class="lightbox-img" src="/media/voyages/millilan.jpg" alt="Millilan Gali Riveri">
+    <img class="lightbox-img" src="/media/voyages/sommet.jpg" alt="Un sommet annapurnien">
+    <img class="lightbox-img" src="/media/voyages/virage.jpg" alt="Un virage himalayen">
+    <img class="lightbox-img" src="/media/voyages/volcan.jpg" alt="Volcan ?">
+    <img class="lightbox-img" src="/media/voyages/cockatoo.jpg" alt="White cockatoo">
+    <img class="lightbox-img" src="/media/voyages/wiliapa.jpg" alt="Wiliapa">
 </div>
 
-<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; cursor:pointer; align-items:center; justify-content:center;">
-    <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; object-fit:contain; border-radius:4px;">
-</div>
-{% endblock %}
-
-{% block javascripts %}
-{{ parent() }}
-<script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    // Move lightbox to body to escape the CSS filter context of the content panel
-    document.body.appendChild(lightbox);
-
-    document.querySelectorAll('.photo-gallery img').forEach(img => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', () => {
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightbox.style.display = 'flex';
-        });
-    });
-
-    lightbox.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-        lightboxImg.src = '';
-    });
-</script>
 {% endblock %}
