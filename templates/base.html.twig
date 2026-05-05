@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="Dhamien Schmutz - Percussionniste, musicien, pédagogue">
+    <meta name="description" content="Dhamien Schmutz - Percussionniste, musicien, pédagogue / Percussionist, musician, educator">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}dhamien.fr{% endblock %}</title>
     <link href="/css/styles.css" rel="stylesheet">
@@ -12,6 +12,8 @@
     <script src="/js/center-accordion.js"></script>
     {% block stylesheets %}{% endblock %}
     {% block head %}{% endblock %}
+    {# Apply saved language before first paint to prevent flash #}
+    <script>(function(){var l=localStorage.getItem('dhamien-lang')||'fr';document.documentElement.classList.add('lang-'+l);document.documentElement.lang=l;})();</script>
   </head>
   <body class="relative">
     {# Determine current section from URL #}
@@ -23,28 +25,41 @@
         <span></span><span></span><span></span>
       </button>
       <div class="mobile-nav-menu">
-        <a href="{{ path('app_home') }}">Accueil</a>
-        <a href="{{ path('page_musique') }}">Musique</a>
-        <a href="{{ path('page_spectacles') }}">Spectacles</a>
-        <a href="{{ path('page_biographie') }}">Biographie</a>
-        <a href="{{ path('page_stage') }}">Stages</a>
-        <a href="{{ path('page_prive') }}">Ressources</a>
-        <a href="{{ path('page_voyages_photos') }}">Photos de voyage</a>
+        <a href="{{ path('app_home') }}"><span class="i18n-fr">Accueil</span><span class="i18n-en">Home</span></a>
+        <a href="{{ path('page_musique') }}"><span class="i18n-fr">Musique</span><span class="i18n-en">Music</span></a>
+        <a href="{{ path('page_spectacles') }}"><span class="i18n-fr">Spectacles</span><span class="i18n-en">Shows</span></a>
+        <a href="{{ path('page_biographie') }}"><span class="i18n-fr">Biographie</span><span class="i18n-en">Biography</span></a>
+        <a href="{{ path('page_stage') }}"><span class="i18n-fr">Stages</span><span class="i18n-en">Workshops</span></a>
+        <a href="{{ path('page_prive') }}"><span class="i18n-fr">Ressources</span><span class="i18n-en">Resources</span></a>
+        <a href="{{ path('page_voyages_photos') }}"><span class="i18n-fr">Photos de voyage</span><span class="i18n-en">Travel Photos</span></a>
         <a href="{{ path('page_contact') }}">Contact</a>
-        <a href="{{ path('page_presentation') }}">Présentation</a>
+        <a href="{{ path('page_presentation') }}"><span class="i18n-fr">Présentation</span><span class="i18n-en">About</span></a>
         <a href="{{ path('page_infos_photos') }}">Photos</a>
-        <a href="{{ path('page_presse') }}">Presse</a>
-        <a href="{{ path('page_liens') }}">Liens</a>
-        <a href="{{ path('page_merci') }}">Merci</a>
-        <a href="{{ path('page_agenda') }}">Agenda</a>
+        <a href="{{ path('page_presse') }}"><span class="i18n-fr">Presse</span><span class="i18n-en">Press</span></a>
+        <a href="{{ path('page_liens') }}"><span class="i18n-fr">Liens</span><span class="i18n-en">Links</span></a>
+        <a href="{{ path('page_merci') }}"><span class="i18n-fr">Merci</span><span class="i18n-en">Credits</span></a>
+        <a href="{{ path('page_agenda') }}"><span class="i18n-fr">Agenda</span><span class="i18n-en">Calendar</span></a>
       </div>
     </nav>
+
+    {# Language switcher signs #}
+    <div id="lang-switcher">
+      <button class="lang-sign" id="sign-fr" onclick="setLang('fr')">
+        <span class="sign-dot"></span>
+        Vous êtes ici
+      </button>
+      <button class="lang-sign" id="sign-en" onclick="setLang('en')">
+        <span class="sign-dot"></span>
+        You are here
+      </button>
+    </div>
 
     <div class="mx-auto" style="max-width: 1600px; width: 100%; padding: 0 20px;">
       <div class="flex flex-col items-center justify-center min-h-screen">
         <section id="accueil">
           <a href="{{ path('app_home') }}">
-            <img class="max-w-full" src="/media/img/accueil.jpg" alt="accueil">
+            <img class="max-w-full i18n-fr" src="/media/img/accueil.jpg" alt="accueil">
+            <img class="max-w-full i18n-en" src="/media/img/accueil_en.jpg" alt="accueil">
           </a>
         </section>
         <section id="musique">
@@ -148,6 +163,30 @@
         {% block main %}{% endblock %}
       </div>
     </div>
+
     {% block javascripts %}{% endblock %}
+
+    <script>
+    function setLang(l) {
+      var html = document.documentElement;
+      html.classList.remove('lang-fr', 'lang-en');
+      html.classList.add('lang-' + l);
+      html.lang = l;
+      var signFr = document.getElementById('sign-fr');
+      var signEn = document.getElementById('sign-en');
+      if (signFr) signFr.classList.toggle('active', l === 'fr');
+      if (signEn) signEn.classList.toggle('active', l === 'en');
+      localStorage.setItem('dhamien-lang', l);
+      var cal = document.getElementById('calendar-iframe');
+      if (cal) cal.src = cal.getAttribute('data-src-' + l);
+    }
+    (function() {
+      var l = localStorage.getItem('dhamien-lang') || 'fr';
+      var signFr = document.getElementById('sign-fr');
+      var signEn = document.getElementById('sign-en');
+      if (signFr) signFr.classList.toggle('active', l === 'fr');
+      if (signEn) signEn.classList.toggle('active', l === 'en');
+    })();
+    </script>
   </body>
 </html>
